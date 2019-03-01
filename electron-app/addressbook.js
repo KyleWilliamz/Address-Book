@@ -44,6 +44,10 @@ function loadDetails(index){
     $('#deletebtn').on('click', () => {
       deleteEntry(index);
     })
+    $('#editbtn').off('click');
+    $('#editbtn').on('click', () => {
+      showEditContactModal();
+    })
 }
 
 function deleteEntry(index){
@@ -83,7 +87,11 @@ function loadAndDisplayContacts() {
 }
 
 function showAddContactModal(){
-  ipcRenderer.send('asynchronous-message', 'showModal')
+  ipcRenderer.send('asynchronous-message', 'showAddModal')
+}
+
+function showEditContactModal(){
+  ipcRenderer.send('asynchronous-message', 'showEditModal')
 }
 
 function importFile(filename){

@@ -8,8 +8,11 @@ let modal
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
   //event.sender.send('asynchronous-reply', 'pong')
-  if (arg == "showModal"){
+  if (arg == "showAddModal"){
     showAddContactModal();
+  }
+  else if( arg == "showEditModal"){
+    showEditContactModal();
   }
   else if (arg == "closeAndRefresh"){
     win.webContents.send('asynchronous-message', 'refreshList');
@@ -25,6 +28,15 @@ function showAddContactModal(){
   // create a dialog window for modal inputs
   modal = new BrowserWindow({parent:win, modal:true, show:false, width:400, height:300, frame:false})
   modal.loadFile('addContact.html');
+  modal.once('ready-to-show', () => {
+    modal.show();
+  })
+}
+
+function showEditContactModal(){
+  // create a dialog window for modal inputs
+  modal = new BrowserWindow({parent:win, modal:true, show:false, width:400, height:300, frame:false})
+  modal.loadFile('editContact.html');
   modal.once('ready-to-show', () => {
     modal.show();
   })
