@@ -1,34 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <link rel="stylesheet" href="addcontact.css">
 </head>
 <body>
-<form id="addform">
-  <label>Name</label>
-  <input type="text" name="contactname" id="contactname" />
-  <br>
-  <label>Home Phone Number</label>
-  <input type="tel" name="contactnumber" id="contactnumber" />
-  <br>
-  <label>Mobile Phone Number</label>
-  <input type="tel" name="contactnumberm" id="contactnumberm" />
-  <br>
-  <label>Address</label>
-  <input type="text" name="contactAddress" id="contactAddress" />
-  <br>
-  <label>Company</label>
-  <input type="text" name="contactCompany" id="contactCompany" />
-  <br>
-  <label>Birth Date</label>
-  <input type="date" name="contactBirthday" id="contactBirthday" />
-  <br>
-  <label>Email</label>
-  <input type="email" name="contactEmail" id="contactEmail" />
-  <br>
-  <button id="addbtn">Add</button>
-  <button id="cancelbtn">Cancel</button>
-</form>
+  <table>
+    <tr>
+      <td><label>Name *</label></td>
+      <td><input type="text" name="contactname" id="contactname" />
+      </td><td id="errorname"></td>
+    </tr>
+    <br>
+    <tr>
+      <td><label>Phone Number *</label></td>
+      <td><input type="tel" name="contactnumber" id="contactnumber" /></td>
+      <td id="errorphone"></td>
+    </tr>
+    <br>
+    <tr>
+        <td><label>Mobile Number</label></td>
+        <td><input type="tel" name="contactnumberm" id="contactnumberm" /></td>
+        <td id="errormobile"></td>
+    </tr>
+    <br>
+    <tr>
+        <td><label>Address</label></td>
+        <td><input type="text" name="contactAddress" id="contactAddress" /></td>
+        <td id="erroraddress"></td>
+    </tr>
+    <br>
+    <tr>
+        <td><label>Company</label></td>
+        <td><input type="text" name="contactCompany" id="contactCompany" /></td>
+        <td id="errorcompany"></td>
+    </tr>
+    <br>
+    <tr>
+        <td><label>Birth Date</label></td>
+        <td><input type="date" name="contactBirthday" id="contactBirthday" /></td>
+        <td id="errorbirth"></td>
+    </tr>
+    <br>
+    <tr>
+        <td><label>Email</label></td>
+        <td><input type="email" name="contactEmail" id="contactEmail" /></td>
+        <td id="erroremail"></td>
+    </tr>
+    <br>
+    <tr>
+        <td><label>URL</label></td>
+        <td><input type="text" name="contacturl" id="contacturl" /></td>
+        <td id="errorurl"></td>
+    </tr>
+    <br>
+    <tr>
+        <td><label>Image</label></td>
+        <td><input type="file" accept="image/*"name="contactimg" id="contactimg" onchange="readURL(this)" /></td>
+        <td id="erroremail"></td>
+    </tr>
+    <br>
+    <tr>
+        <td><button id="addbtn">Add</button></td>
+        <td><button id="cancelbtn">Cancel</button></td>
+    </tr>
+</table>
 <script src="./addressbook.js"></script>
 </body>
 </html>

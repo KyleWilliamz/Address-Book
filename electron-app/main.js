@@ -1,5 +1,6 @@
 const { app, BrowserWindow, Menu, ipcMain } = require('electron')
 
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
@@ -26,26 +27,18 @@ ipcMain.on('asynchronous-message', (event, arg) => {
 
 function showAddContactModal(){
   // create a dialog window for modal inputs
-  modal = new BrowserWindow({parent:win, modal:true, show:false, width:400, height:300, frame:false})
+  modal = new BrowserWindow({parent:win, modal:true, show:false, width:800, height:600, frame:false})
   modal.loadFile('addContact.html');
   modal.once('ready-to-show', () => {
     modal.show();
   })
 }
 
-function showEditContactModal(){
-  // create a dialog window for modal inputs
-  modal = new BrowserWindow({parent:win, modal:true, show:false, width:400, height:300, frame:false})
-  modal.loadFile('editContact.html');
-  modal.once('ready-to-show', () => {
-    modal.show();
-  })
-}
 
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 800, height: 600 })
+  win = new BrowserWindow({ width: 1000, height: 600 })
 
 
   // and load the index.html of the app.

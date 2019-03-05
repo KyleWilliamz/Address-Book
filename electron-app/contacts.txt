@@ -1,2 +1,9 @@
-Kyle,716994773
-John Doe,777777
+gabe,1234567890,,,,,,,undefined
+Kyle Williams,7166886205,7169947773,206 Paradise,Google,1997-07-08,kjw22@buffalo.edu,google.com,undefined
+dsjklad,1231231234,,,,,,undefined,undefined
+Katy,1231231234,,fdsjkldas,asdf,,,undefined,undefined
+ky,7161231234,,,,,,,undefined
+Jon Snow,7162223344,5684445678,123 Winterfell,GoT,1467-12-31,,undefined,undefined
+Kyle,9999999999,,,,,,undefined,undefined
+test,1234567890,,,,,,,undefined
+test,1231231234,,,,,,google.com,

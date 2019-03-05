@@ -21,7 +21,7 @@
     <div class="contact">
 
       <div class="contactpic">
-        <img src="default.png" width="150px" >
+        <img src="default.png" width="150px" id="selectedimg">
         <div style="text-align:center">
           <span style="color:white"><i id="editbtn"class="fas fa-edit"></i></span>
           <span style="color:white"><i id="deletebtn" class="fas fa-trash-alt"></i></span>
@@ -32,25 +32,29 @@
         <table>
           <tr>
             <td>
-              Name
+              Name *
             </td>
             <td><input type="text" name="selectedname" id="selectedname" />
 
             </td>
+            <td id="nameerror"></td>
           </tr>
           <tr>
             <td>
-              Phone
+              Phone *
             </td>
             <td><input type="text" name="selectednumber" id="selectednumber" />
 
             </td>
+            <td id="phoneerror"></td>
           </tr>
-          <tr><td>Mobile</td><td><input type="tel" name="selectedmobile" id="selectedmobile" /></td></tr>
-          <tr><td>Address</td><td><input type="text" name="selectedaddress" id="selectedaddress" /></td></tr>
-          <tr><td>Company</td><td><input type="text" name="selectedcompany" id="selectedcompany" /></td></tr>
-          <tr><td>Birth Date</td><td><input type="date" name="selectedbirthday" id="selectedbirthday" /></td></tr>
-          <tr><td>Email</td><td><input type="email" name="selectedmobile" id="selectednmobile" /></td></tr>
+          <tr><td>Mobile</td><td><input type="tel" name="selectedmobile" id="selectedmobile" /></td><td id="mobileerror"></td></tr>
+          <tr><td>Address</td><td><input type="text" name="selectedaddress" id="selectedaddress" /></td><td id="adresserror"></td></tr>
+          <tr><td>Company</td><td><input type="text" name="selectedcompany" id="selectedcompany" /></td><td id="companyerror"></td></tr>
+          <tr><td>Birth Date</td><td><input type="date" name="selectedbirthday" id="selectedbirthday" /></td><td id="birtherror"></td></tr>
+          <tr><td>Email</td><td><input type="email" name="selectedemail" id="selectedemail" /></td><td id="emailerror"></td></tr>
+          <tr><td>URL</td><td><input type="text" name="selectedurl" id="selectedurl" /></td><td><a href="" target="_blank"id="selectedlink">URL</a></td></tr>
+          <tr id="simg"><td><label>Image</label></td><td><input type="file" accept="image/*"name="selectedimg" id="selectedimg" onchange="readURL(this)" /></td></tr>
           <tr><td><button id="savebtn">Save</button></td></tr>
         </table>
       </div>
@@ -63,6 +67,26 @@
 <script>
   // when the document loads, load the contact list from file
   $(document).ready(loadAndDisplayContacts());
+  (function () {
+  var holder = document.getElementsByClassName('contactlist');
+  holder.ondragover = () => {
+            return false;
+        };
+
+        holder.ondragleave = () => {
+            return false;
+        };
+
+        holder.ondragend = () => {
+            return false;
+        };
+        holder.ondrop = (e) =>{
+          e.preventDefault();
+          importFile(e.dataTransfer.files.name);         
+          return false;
+        };
+    })();
+
   require('electron').ipcRenderer.on('asynchronous-message', (event, message) => {
         console.log(message)
         if (message === "refreshList"){

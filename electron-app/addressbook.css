@@ -3,11 +3,19 @@ html, body {
   margin:0;
   padding:0;
   height:100%;
+  font-family: "Verdana", sans-serif;
+}
+
+button {
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
 }
 
 /* this is the wrapper around the entire app */
 .contactapp {
-  background: lightblue;
+  background: #a7d7c5;
   display:flex;
   justify-content: center;
   align-items: stretch;
@@ -19,7 +27,7 @@ html, body {
   padding:0px;
   margin:10px;
   min-height: 200px;
-  flex-basis:60%;
+  flex-basis:50%;
 }
 
 .contactlist table {
@@ -30,23 +38,23 @@ html, body {
 }
 
 .contactlist tr:nth-child(even) {
-  background:lightgray;
+  background: #f9f8eb;
 }
 
 .contactlist tr:hover {
-  background: darkblue;
+  background: #5c8d89;
   color:white;
   cursor:pointer;
 }
 
 /* right column, contact details */
 .contact{
-  background: darkblue;
+  background: #5c8d89;
   padding:0px;
   margin:0px;
   height:100%;
-  float:right;
-  flex-basis: 40%;
+  float:left;
+  flex-basis: 50%;
 }
 
 .contactpic{
@@ -57,6 +65,7 @@ html, body {
 .contact table {
   padding:5px;
   margin:15px;
-  background:white;
+  background: #5c8d89;
+  color: white;
   width:90%;
 }
